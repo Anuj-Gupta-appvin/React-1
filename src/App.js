@@ -7,8 +7,7 @@ import Alerts from './Components/AlertingMsg';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
       setAlert(null)    
     },1500)
   }
-  
+
   const [mode, setMode] = useState({
           color:"black",
           background:"white"
@@ -65,6 +64,7 @@ function App() {
     <Route path="/" element={< Data mode={mode} modetext={modetext} togglemode={togglemode} showAlert={showAlert}/>}>
     </Route>
   </Routes>
+
     </div>
     </Router>
 
