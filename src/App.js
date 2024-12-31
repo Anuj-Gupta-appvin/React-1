@@ -27,6 +27,7 @@ function App() {
           background:"white"
           
       })
+
       const [modetext, setModetext] = useState("Enable Dark Mode")
 
       const togglemode = ()=>{
@@ -51,11 +52,13 @@ function App() {
   return (
 
     <Router>
-    <div className='h-screen w-screen' style={mode}>
+    <div className='h-screen  ' style={mode}>
       <div className='text-right pr-4 pt-4' style={mode}>
       <MuiSwitch className='border-gray-400 border-2 rounded-3xl' onClick={togglemode} {...label}  color="default"/>
       </div>
-      <div className='mt-4'><Alerts alert={alert}/></div>
+      <div className="h-16 mt-10"><Alerts alert={alert}/></div>
+      {/* </div> */}
+
       
       {/* <Data mode={mode} modetext={modetext} togglemode={togglemode} showAlert={showAlert}/> */}
       <Routes>

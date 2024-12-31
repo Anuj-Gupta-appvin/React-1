@@ -43,19 +43,20 @@ export default function CaseChanger(props) {
     </div> */}
     
     <div className='flex flex-col  items-center h-2/3  w-screen' style={props.mode}>
-        <div className='pb-4 text-center  w-2/3 h-2/3  flex justify-center items-end mb-4'>
-        <textarea name="text-area" id="text-area" className='border-2 border-gray-400 w-2/3 h-2/3 p-6 overflow-auto scrollbar-hide' style={props.mode} value={text} onChange={textchange}> </textarea>
+    <h1 className="text-3xl my-4">Try TextUtils</h1>
+        <div className='pb-4 text-center  w-2/3 flex justify-center items-end mb-4'>
+        <textarea name="text-area" id="text-area"  className='border-2 border-gray-400 w-2/3 h-2/3 p-6 overflow-auto scrollbar-hide' style={props.mode} value={text} onChange={textchange}> </textarea>
         </div>
-        <div >
+        <div className ="flex flex-wrap">
 
-        <button className='border-2 border-green-600 bg-blue-200 mx-2 text-white p-2 rounded-xl ' style={props.mode} onClick={convertupper}>Convert to UpperCase</button>
-        <button className='border-2 border-green-600 bg-blue-200 mx-2 text-white p-2 rounded-xl ' style={props.mode} onClick={convertlower}>Convert to LowerCase</button>
-        <button className='border-2 border-green-600 bg-blue-200 mx-2 text-white p-2 rounded-xl ' style={props.mode} onClick={handleCopy}><p>{copied ? 'Text copied!' : 'Copy Text'}</p></button>
-        <button className='border-2 border-green-600 bg-blue-200 mx-2 text-white p-2 rounded-xl ' style={props.mode} onClick={clearall}>Clear all text</button>
+        <button className='border-2 m-2  border-gray-600 bg-green-300 mx-2 text-black p-2 rounded-xl ' disabled={text.length===0}  onClick={convertupper}>Convert to UpperCase</button>
+        <button className='border-2 m-2  border-gray-600 bg-green-300 mx-2 text-black p-2 rounded-xl ' disabled={text.length===0} onClick={convertlower}>Convert to LowerCase</button>
+        <button className='border-2 m-2  border-gray-600 bg-green-300 mx-2 text-black p-2 rounded-xl ' disabled={text.length===0}  onClick={handleCopy}><p>{copied ? 'Text copied!' : 'Copy Text'}</p></button>
+        <button className='border-2 m-2  border-gray-600 bg-green-300 mx-2 text-black p-2 rounded-xl ' disabled={text.length===0}  onClick={clearall}>Clear all text</button>
         </div>
         <div className='pt-3'>
             <div style={props.mode}>
-            <p>Words {text.split(" ").length} , Characters {text.length} , WhiteSpaces {(text.match(/\s/g) || []).length}</p>
+            <p>Words {text.split(" ").filter((element)=>{return element.length!==0}).length} , Characters {text.length} , WhiteSpaces {(text.match(/\s/g) || []).length}</p>
             </div>
         </div>
     </div>
