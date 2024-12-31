@@ -44,7 +44,7 @@ export default function CaseChanger(props) {
     
     <div className='flex flex-col  items-center h-2/3  w-screen' style={props.mode}>
     <h1 className="text-3xl my-4">Try TextUtils</h1>
-        <div className='pb-4 text-center  w-2/3 flex justify-center items-end mb-4'>
+        <div className='pb-4 text-center  w-2/3  flex justify-center items-end mb-4'>
         <textarea name="text-area" id="text-area"  className='border-2 border-gray-400 w-2/3 h-2/3 p-6 overflow-auto scrollbar-hide' style={props.mode} value={text} onChange={textchange}> </textarea>
         </div>
         <div className ="flex flex-wrap">
@@ -56,7 +56,7 @@ export default function CaseChanger(props) {
         </div>
         <div className='pt-3'>
             <div style={props.mode}>
-            <p>Words {text.split(" ").filter((element)=>{return element.length!==0}).length} , Characters {text.length} , WhiteSpaces {(text.match(/\s/g) || []).length}</p>
+            <p>Words {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} , Characters {text.length} , WhiteSpaces {(text.match(/\s/g) || []).length}</p>
             </div>
         </div>
     </div>
